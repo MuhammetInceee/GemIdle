@@ -8,20 +8,20 @@ namespace Scripts.GemVersionTwo
     public class GemTypeVersion : MonoBehaviour
     {
         [SerializeField] private GemTypes Type;
-        internal Gem type => new(Type);
+        internal GemTwo type => new(Type);
     }
     
     public enum GemTypes {green, pink, yellow}
 
     [System.Serializable]
-    public class Gem
+    public class GemTwo
     {
-        internal static readonly Gem green = new(GemTypes.green);
-        internal static readonly Gem pink = new(GemTypes.pink);
-        internal static readonly Gem yellow = new(GemTypes.yellow);
+        internal static readonly GemTwo green = new(GemTypes.green);
+        internal static readonly GemTwo pink = new(GemTypes.pink);
+        internal static readonly GemTwo yellow = new(GemTypes.yellow);
 
         private readonly GemTypes gemTypes;
-        internal Gem(GemTypes gemTypes) => this.gemTypes = gemTypes;
+        internal GemTwo(GemTypes gemTypes) => this.gemTypes = gemTypes;
 
         internal string name => gemTypes switch
         {
@@ -32,16 +32,16 @@ namespace Scripts.GemVersionTwo
 
         internal Sprite icon => gemTypes switch
         {
-            GemTypes.green => Resources.Load<Sprite>($"GemIcons/Gem_{Gem.green.name}"),
-            GemTypes.pink => Resources.Load<Sprite>($"GemIcons/Gem_{Gem.pink.name}"),
-            GemTypes.yellow => Resources.Load<Sprite>($"GemIcons/Gem_{Gem.yellow.name}")
+            GemTypes.green => Resources.Load<Sprite>($"GemIcons/Gem_{GemTwo.green.name}"),
+            GemTypes.pink => Resources.Load<Sprite>($"GemIcons/Gem_{GemTwo.pink.name}"),
+            GemTypes.yellow => Resources.Load<Sprite>($"GemIcons/Gem_{GemTwo.yellow.name}")
         };
 
         internal int startPrice => gemTypes switch
         {
-            GemTypes.green => Resources.Load<IntegerObject>($"GemStartPrices/Gem_{Gem.green.name}").value,
-            GemTypes.pink => Resources.Load<IntegerObject>($"GemStartPrices/Gem_{Gem.pink.name}").value,
-            GemTypes.yellow => Resources.Load<IntegerObject>($"GemStartPrices/Gem_{Gem.yellow.name}").value
+            GemTypes.green => Resources.Load<IntegerObject>($"GemStartPrices/Gem_{GemTwo.green.name}").value,
+            GemTypes.pink => Resources.Load<IntegerObject>($"GemStartPrices/Gem_{GemTwo.pink.name}").value,
+            GemTypes.yellow => Resources.Load<IntegerObject>($"GemStartPrices/Gem_{GemTwo.yellow.name}").value
         };
     }
 }
