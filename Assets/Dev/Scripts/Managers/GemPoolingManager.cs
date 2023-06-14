@@ -36,6 +36,8 @@ namespace Scripts.Manager
                     gemPool.Add(gem);
                 }
             }
+            
+            gemPool.Shuffle();
         }
 
         private GameObject GetFirstInactiveGemType()
