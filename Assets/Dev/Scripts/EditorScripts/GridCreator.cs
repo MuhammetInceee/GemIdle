@@ -19,7 +19,7 @@ public class GridCreator : MonoBehaviour
         {
             for (var j = 0; j < column; j++)
             {
-                var position = new Vector3(i * 1.7f, 0, j * 1.7f);
+                var position = new Vector3(i * 2f, 0, j * 3f);
 
                 var tile = Instantiate(_tilePrefab, position, Quaternion.identity, _parent.transform);
             }

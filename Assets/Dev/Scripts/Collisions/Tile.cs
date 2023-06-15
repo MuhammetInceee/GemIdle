@@ -49,7 +49,7 @@ namespace Scripts.Collisions
 
             _gem.transform.DOKill();
             _gem.transform.SetParent(parent);
-
+            
             if (stackList.Count == 0) _targetPos = Vector3.zero;
             else
             {
@@ -59,12 +59,11 @@ namespace Scripts.Collisions
 
                 _targetPos = new Vector3(0, lastElement.transform.localPosition.y + gemBound.size.y, 0);
             }
-
+            stackList.Add(_gem.GetComponent<Gem>());
             _gem.transform.DOLocalJump(_targetPos, 1, 1, 0.5f)
                 .OnComplete(() =>
                 {
                     _collectable = false;
-                    stackList.Add(_gem.GetComponent<Gem>());
                     GetNewGem();
                 });
         }
