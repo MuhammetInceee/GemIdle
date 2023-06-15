@@ -8,5 +8,4 @@ namespace Scripts.GemManagement
         public Sprite icon;
         public int startPrice;
     }
-
 }
