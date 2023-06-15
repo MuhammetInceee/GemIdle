@@ -9,7 +9,7 @@ namespace Scripts.Manager
         private const int PoolSize = 150;
         [SerializeField] private GameObject[] gemTypes;
         [SerializeField] private List<GameObject> gemPool;
-        private void Start()
+        private void Awake()
         {
             ReadGems();
             CreatePool();
@@ -40,10 +40,17 @@ namespace Scripts.Manager
             gemPool.Shuffle();
         }
 
-        private GameObject GetFirstInactiveGemType()
+        public GameObject GetFirstInactiveGemType()
         {
             var firstInactiveGemType = gemPool.FirstOrDefault(gemType => !gemType.activeSelf);
             return firstInactiveGemType;
+        }
+
+        public void ReturnPool(GameObject obj)
+        {
+            obj.SetActive(false);
+            obj.transform.SetParent(transform);
+            obj.transform.position = Vector3.zero;
         }
     }
 }
