@@ -15,7 +15,7 @@ namespace Scripts.Player
         {
             if (other.TryGetComponent(out ICollectable collectable))
             {
-                collectable.Execute(firstStackTr, _collectCount, stackList);
+                collectable.Execute(firstStackTr, stackList);
                 _collectCount++;
             }
         }

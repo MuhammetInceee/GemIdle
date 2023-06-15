@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Scripts.Interfaces;
@@ -40,7 +39,7 @@ public class TileManager : MonoBehaviour, ICollectable
         // sequence.Play();
     }
     
-    public void Execute(Transform parent, int collectCount, List<GameObject> stackList)
+    public void Execute(Transform parent, List<GameObject> stackList)
     {
         if(!_collectable) return;
         

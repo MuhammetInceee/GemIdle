@@ -1,5 +1,5 @@
 #if UNITY_EDITOR
-using Scripts.GemManagment;
+using Scripts.GemManagement;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
