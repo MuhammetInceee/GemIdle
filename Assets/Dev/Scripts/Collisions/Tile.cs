@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using Scripts.GemManagement;
 using Scripts.Interfaces;
 using Scripts.Manager;
 using UnityEngine;
@@ -42,7 +43,7 @@ namespace Scripts.Collisions
             // sequence.Play();
         }
 
-        public void Execute(Transform parent, List<GameObject> stackList)
+        public void Execute(Transform parent, List<Gem> stackList)
         {
             if (!_collectable) return;
 
@@ -52,8 +53,8 @@ namespace Scripts.Collisions
             if (stackList.Count == 0) _targetPos = Vector3.zero;
             else
             {
-                var lastElement = stackList[^1];
-                var gemMesh = _gem.GetComponent<MeshRenderer>();
+                var lastElement = stackList[^1].gameObject;
+                var gemMesh = _gem.gameObject.GetComponent<MeshRenderer>();
                 var gemBound = gemMesh.bounds;
 
                 _targetPos = new Vector3(0, lastElement.transform.localPosition.y + gemBound.size.y, 0);
@@ -63,7 +64,7 @@ namespace Scripts.Collisions
                 .OnComplete(() =>
                 {
                     _collectable = false;
-                    stackList.Add(_gem);
+                    stackList.Add(_gem.GetComponent<Gem>());
                     GetNewGem();
                 });
         }
